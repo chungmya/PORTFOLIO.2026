@@ -1,0 +1,152 @@
+// ============================================================
+// 전역 스타일 통합
+// ============================================================
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'reset';
+
+// ============================================================
+// Pretendard 폰트 로드
+// ============================================================
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+// ============================================================
+// 전역 기본 스타일
+// ============================================================
+body {
+  font-family: $font-primary;
+  background-color: $color-bg;
+  color: $color-text;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+}
+
+// ============================================================
+// 공통 컨테이너
+// ============================================================
+.container {
+  @include container;
+}
+
+// ============================================================
+// 섹션 공통 타이틀 스타일
+// ============================================================
+.section-header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+
+  .section-eyebrow {
+    display: inline-block;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-primary-light;
+    margin-bottom: $spacing-xs;
+  }
+
+  .section-title {
+    @include section-title;
+    color: $color-text;
+
+    span {
+      @include gradient-text;
+    }
+  }
+
+  .section-desc {
+    margin-top: $spacing-sm;
+    color: $color-text-muted;
+    font-size: $font-size-md;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// ============================================================
+// 공통 버튼 스타일
+// ============================================================
+.btn-primary {
+  @include btn-base;
+  background: linear-gradient(135deg, $color-primary, $color-accent);
+  color: $color-white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-hover;
+  }
+}
+
+.btn-outline {
+  @include btn-base;
+  background: transparent;
+  color: $color-primary-light;
+  border: 1.5px solid $color-primary;
+
+  &:hover {
+    background: $color-primary;
+    color: $color-white;
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================================
+// 스크롤 진입 애니메이션 (Intersection Observer용)
+// ============================================================
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ============================================================
+// 커스텀 스크롤바
+// ============================================================
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: $border-radius-full;
+}
+
+// ============================================================
+// 텍스트 선택 색상
+// ============================================================
+::selection {
+  background: rgba($color-primary, 0.4);
+  color: $color-white;
+}

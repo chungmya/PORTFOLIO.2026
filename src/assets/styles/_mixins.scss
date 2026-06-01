@@ -1,0 +1,155 @@
+@use 'variables' as *;
+
+// ============================================================
+// 반응형 미디어쿼리 믹스인 (모바일 퍼스트)
+// ============================================================
+
+// 태블릿 이상
+@mixin tablet {
+  @media screen and (min-width: #{$bp-mobile + 1}) {
+    @content;
+  }
+}
+
+// 데스크탑 이상
+@mixin desktop {
+  @media screen and (min-width: #{$bp-desktop}) {
+    @content;
+  }
+}
+
+// 모바일 전용 (max-width)
+@mixin mobile-only {
+  @media screen and (max-width: #{$bp-mobile}) {
+    @content;
+  }
+}
+
+// ============================================================
+// 레이아웃 믹스인
+// ============================================================
+
+// 컨테이너 중앙 정렬
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: $container-padding;
+}
+
+// Flexbox 중앙 정렬
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Flexbox 수직 중앙
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// 절대 위치 전체 채우기
+@mixin absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// ============================================================
+// 텍스트 믹스인
+// ============================================================
+
+// 텍스트 말줄임
+@mixin text-ellipsis($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// 그라데이션 텍스트
+@mixin gradient-text($from: $color-primary, $to: $color-accent) {
+  background: linear-gradient(135deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ============================================================
+// 시각 효과 믹스인
+// ============================================================
+
+// 유리 효과 (glassmorphism)
+@mixin glassmorphism($opacity: 0.1) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// 글로우 효과
+@mixin glow($color: $color-primary, $size: 20px) {
+  box-shadow: 0 0 $size rgba($color, 0.4);
+}
+
+// 섹션 공통 스타일
+@mixin section-base {
+  padding: $section-padding;
+  position: relative;
+  overflow: hidden;
+}
+
+// 섹션 타이틀 스타일
+@mixin section-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-sm;
+
+  @include tablet {
+    font-size: $font-size-3xl;
+  }
+}
+
+// 버튼 기본 스타일
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0.75rem 1.75rem;
+  border-radius: $border-radius-full;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-normal;
+  border: none;
+  outline: none;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
+}
+
+// 스크롤 진입 애니메이션 기본 상태
+@mixin reveal-init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
