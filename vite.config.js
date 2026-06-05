@@ -4,6 +4,12 @@ import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   plugins: [vue()],
+  server: {
+    hmr: true, // 기본값이지만 명시
+    watch: {
+      usePolling: true, // WSL, Docker, VM 환경이라면 필수!
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -12,8 +18,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // 전역 SCSS 변수/믹스인 자동 주입 (각 컴포넌트에서 @use 없이 접근 불필요)
         api: 'modern-compiler',
+        
       },
     },
   },

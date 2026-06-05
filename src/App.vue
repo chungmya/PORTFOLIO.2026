@@ -1,20 +1,18 @@
+
 <template>
-  <!-- ============================================================
-       App.vue: 전체 포트폴리오 단일 페이지 진입점
-       각 섹션 컴포넌트를 순서대로 렌더링
-       ============================================================ -->
+
   <div id="portfolio">
 
-    <!-- 상단 네비게이션 (스크롤 시 고정) -->
+    <!-- 상단 네비게이션 -->
     <header class="site-header" :class="{ 'is-scrolled': isScrolled }" role="banner">
       <div class="container">
         <nav class="site-nav" aria-label="주 내비게이션">
           <!-- 로고 -->
           <a href="#" class="site-nav__logo" aria-label="포트폴리오 상단으로 이동">
-            <span aria-hidden="true">✦</span> Jimin.dev
+            <span aria-hidden="true">✦</span> PCM's Portfolio
           </a>
 
-          <!-- 모바일 햄버거 버튼 -->
+          <!-- 모바일 네비게이션 햄버거 버튼 -->
           <button
             class="site-nav__toggle"
             :class="{ 'is-open': isMenuOpen }"
@@ -23,12 +21,10 @@
             aria-controls="nav-menu"
             aria-label="메뉴 열기/닫기"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+          <Menu :size="20" />
           </button>
 
-          <!-- 내비게이션 링크 목록 -->
+          <!-- 네비게이션 -->
           <ul
             id="nav-menu"
             class="site-nav__links"
@@ -51,14 +47,7 @@
     </header>
 
     <!-- 메인 콘텐츠 -->
-    <main id="main-content" tabindex="-1">
-      <HeroSection />
-      <AboutSection />
-      <CareerSection />
-      <ProjectSection />
-      <SkillsSection />
-      <ContactSection />
-    </main>
+    <RouterView />
 
     <!-- 페이지 상단으로 이동 버튼 -->
     <Transition name="scroll-top">
@@ -78,12 +67,11 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import HeroSection from './components/HeroSection.vue'
-import AboutSection from './components/AboutSection.vue'
-import CareerSection from './components/CareerSection.vue'
-import ProjectSection from './components/ProjectSection.vue'
-import SkillsSection from './components/SkillsSection.vue'
-import ContactSection from './components/ContactSection.vue'
+import { RouterView } from 'vue-router'
+
+// 아이콘
+import { Menu } from '@lucide/vue'
+
 
 // ============================================================
 // 네비게이션 데이터
@@ -146,217 +134,7 @@ onUnmounted(() => {
 })
 </script>
 
+
 <style lang="scss">
-@use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
-
-// ============================================================
-// 헤더 네비게이션
-// ============================================================
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: $z-nav;
-  transition: background $transition-normal, box-shadow $transition-normal;
-  padding: 1.25rem 0;
-
-  // 스크롤 시 배경 추가
-  &.is-scrolled {
-    background: rgba($color-bg, 0.9);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 1px 0 $color-border;
-    padding: 0.875rem 0;
-  }
-}
-
-.site-nav {
-  @include flex-between;
-}
-
-.site-nav__logo {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bold;
-  color: $color-text;
-  text-decoration: none;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-
-  span {
-    @include gradient-text;
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-primary;
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-}
-
-// 내비 링크 목록
-.site-nav__links {
-  display: none;
-  list-style: none;
-
-  @include tablet {
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-  }
-
-  // 모바일 메뉴 열림
-  &.is-open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: $color-bg;
-    @include flex-center;
-    gap: $spacing-lg;
-    z-index: $z-nav - 1;
-    animation: fadeIn 0.25s ease;
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.site-nav__link {
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  color: $color-text-muted;
-  text-decoration: none;
-  letter-spacing: 0.05em;
-  padding: 0.375rem 0;
-  position: relative;
-  transition: color $transition-fast;
-
-  // 모바일 메뉴 열림 상태
-  .site-nav__links.is-open & {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-  }
-
-  // 활성 상태 밑줄
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, $color-primary, $color-accent);
-    border-radius: 2px;
-    transition: width $transition-normal;
-  }
-
-  &:hover,
-  &.is-active {
-    color: $color-text;
-
-    &::after {
-      width: 100%;
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-primary;
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-}
-
-// 햄버거 버튼 (모바일)
-.site-nav__toggle {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 28px;
-  cursor: pointer;
-  z-index: $z-nav + 1;
-  position: relative;
-
-  @include tablet {
-    display: none;
-  }
-
-  span {
-    display: block;
-    height: 2px;
-    background: $color-text;
-    border-radius: 2px;
-    transition: all $transition-normal;
-    transform-origin: center;
-  }
-
-  // 열림 상태: X 모양
-  &.is-open {
-    span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    span:nth-child(2) {
-      opacity: 0;
-    }
-
-    span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-primary;
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-}
-
-// ============================================================
-// 페이지 상단 이동 버튼
-// ============================================================
-.scroll-top-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 1.5rem;
-  z-index: $z-nav;
-  @include flex-center;
-  width: 44px;
-  height: 44px;
-  @include glassmorphism(0.15);
-  border-radius: 50%;
-  color: $color-primary-light;
-  transition: all $transition-normal;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba($color-primary, 0.2);
-    transform: translateY(-3px);
-    @include glow($color-primary, 15px);
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-primary;
-    outline-offset: 3px;
-  }
-}
-
-.scroll-top-enter-active,
-.scroll-top-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.scroll-top-enter-from,
-.scroll-top-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-}
+@use '@/assets/scss/page/App';
 </style>

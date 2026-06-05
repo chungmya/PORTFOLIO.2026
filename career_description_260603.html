@@ -1,0 +1,241 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.doc-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem 2.5rem;
+  line-height: 1.8;
+}
+.doc-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.doc-sub {
+  font-size: 13px; color: var(--color-text-secondary);
+  margin-bottom: 1.5rem; padding-bottom: 1rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.company-block { margin-bottom: 2rem; }
+.company-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 2px;
+}
+.company-name { font-size: 16px; font-weight: 500; color: var(--color-text-primary); }
+.company-period { font-size: 13px; color: var(--color-text-secondary); }
+.company-type { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1.25rem; }
+
+.project { margin-bottom: 1.75rem; }
+.project-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 3px;
+}
+.project-name { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.project-period { font-size: 13px; color: var(--color-text-secondary); white-space: nowrap; }
+.project-meta {
+  font-size: 12px; color: var(--color-text-secondary);
+  margin-bottom: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+}
+.meta-label { color: var(--color-text-tertiary); }
+.stack-tag {
+  font-size: 11px; padding: 2px 8px; border-radius: 99px;
+  border: 0.5px solid var(--color-border-secondary);
+  color: var(--color-text-secondary); background: var(--color-background-secondary);
+}
+.stack-tag.main { background: #E6F1FB; border-color: #B5D4F4; color: #0C447C; }
+.stack-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+
+.bullet-list { padding-left: 1rem; margin-bottom: 8px; }
+.bullet-list li { font-size: 14px; color: var(--color-text-primary); margin-bottom: 4px; list-style: disc; line-height: 1.65; }
+
+.keyword-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.keyword {
+  font-size: 11px; padding: 2px 9px; border-radius: 4px;
+  background: #EEEDFE; border: 0.5px solid #AFA9EC; color: #3C3489;
+  font-weight: 500;
+}
+
+.divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; }
+.section-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 6px;
+}
+.contrib-badge {
+  display: inline-block; font-size: 11px; padding: 2px 8px;
+  border-radius: 4px; font-weight: 500; margin-right: 4px;
+  background: #EAF3DE; color: #3B6D11; border: 0.5px solid #C0DD97;
+}
+.note { font-size: 12px; color: var(--color-text-tertiary); margin-top: 4px; font-style: italic; }
+</style>
+
+<h2 class="sr-only">박청미 웹 퍼블리셔 경력기술서</h2>
+
+<div class="doc-card">
+  <div class="doc-title">경력기술서</div>
+  <div class="doc-sub">박청미 · 웹 퍼블리셔 · 총 5년 경력</div>
+
+  <!-- 네티브 -->
+  <div class="company-block">
+    <div class="company-header">
+      <span class="company-name">네티브(주)</span>
+      <span class="company-period">2021. 07 – 현재 (약 4년)</span>
+    </div>
+    <div class="company-type">웹 에이전시 · 웹 퍼블리셔</div>
+
+    <!-- 프로젝트 1 -->
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">라이나원 Go — TMR 모집 신청 신규 웹사이트 구축</span>
+        <span class="project-period">2026. 04 – 2026. 05</span>
+      </div>
+      <div class="project-meta">
+        <span class="meta-label">참여도</span>
+        <span class="contrib-badge">단독 100%</span>
+        <span class="meta-label" style="margin-left:4px">기간</span>
+        <span>약 1.5개월</span>
+      </div>
+      <div class="stack-tags">
+        <span class="stack-tag main">HTML5</span>
+        <span class="stack-tag main">CSS3</span>
+        <span class="stack-tag main">JavaScript</span>
+        <span class="stack-tag">Mobile First</span>
+      </div>
+      <ul class="bullet-list">
+        <li>메인 1개 · 서브 3개 · 에러 페이지 · 팝업 5개 퍼블리싱 단독 수행</li>
+        <li>CTA 버튼 CSS 애니메이션 및 TM 상담 성향 테스트 · 결과 · 신청 페이지 인터랙션 구현</li>
+        <li>다양한 유형의 모달 패턴을 가이드화하여 재사용 가능한 컴포넌트로 정리</li>
+        <li>Mobile First 시멘틱 마크업 기반 반응형 구현, 크로스 브라우저 대응 완료</li>
+      </ul>
+      <div class="section-label">강점 키워드</div>
+      <div class="keyword-row">
+        <span class="keyword">단독 퍼블리싱</span>
+        <span class="keyword">컴포넌트 가이드화</span>
+        <span class="keyword">CTA 인터랙션</span>
+        <span class="keyword">WAI-ARIA</span>
+        <span class="keyword">Mobile First</span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+<!-- 프로젝트 2 -->
+<div class="project">
+  <div class="project-header">
+    <span class="project-name">나라사랑 포털 어드민 및 웹사이트 구축</span>
+    <span class="project-period">2025. 06 – 2026. 01</span>
+  </div>
+  <div class="project-meta">
+    <span class="meta-label">전체 투입 인력</span>
+    <span class="contrib-badge">약 50인 규모</span>
+    <span class="meta-label" style="margin-left:8px">퍼블리셔</span>
+    <span>4인</span>
+    <span class="meta-label" style="margin-left:8px">기간</span>
+    <span>약 7개월</span>
+  </div>
+
+  <!-- 프로젝트 개요 -->
+  <p style="font-size:13px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.7;">
+    현역 군인 전용 복지 플랫폼 구축 프로젝트. 나라사랑카드 발급·인터넷뱅킹 연결·수령 금액 조회·카드 혜택, 입대일·전역일 관리, 병 복지 길라잡이, 문서 발급, 군 이벤트 공지 등 군 생활 전반을 아우르는 대민 서비스 포털.
+  </p>
+
+  <div style="margin-bottom: 10px;">
+    <div class="section-label">어드민</div>
+    <div class="stack-tags">
+      <span class="stack-tag main">HTML5</span>
+      <span class="stack-tag main">SCSS</span>
+      <span class="stack-tag">Gulp</span>
+      <span class="stack-tag">IBsheet</span>
+    </div>
+    <ul class="bullet-list">
+      <li>로그인 · 회원 관리 · 복지혜택 관리 · 빌링 · 카드 발급 · 어드민 마이페이지 등 <strong>총 170페이지 중 84페이지 담당</strong> <span style="color:var(--color-text-secondary)">(기여율 약 49%)</span></li>
+      <li>IBsheet 그리드 연동, 데이터 테이블 및 입력 폼 중심의 어드민 화면 다수 구현</li>
+      <li>버튼·테이블·입력 폼·타이틀 등 어드민 공통 UI 컴포넌트 가이드 제작</li>
+    </ul>
+  </div>
+
+  <div>
+    <div class="section-label">프론트 (반응형 · 앱 페이지)</div>
+    <div class="stack-tags">
+      <span class="stack-tag main">Vue 3</span>
+      <span class="stack-tag main">Quasar</span>
+      <span class="stack-tag main">SCSS</span>
+      <span class="stack-tag">GSAP</span>
+      <span class="stack-tag">WAI-ARIA</span>
+    </div>
+    <ul class="bullet-list">
+      <li>나라사랑카드 소개·발급·혜택·인터넷뱅킹, 입대일·전역일 조회, 병 복지 길라잡이, 문서 발급, 군 이벤트 공지 등 서비스 전 영역 퍼블리싱 참여</li>
+      <li><strong>총 201페이지 중 53페이지 반응형 퍼블리싱 담당</strong> <span style="color:var(--color-text-secondary)">(기여율 약 26%)</span></li>
+      <li>현역·예비역·부사관 등 군인 신분 유형별 분기 UI 구조 설계 및 구현</li>
+      <li>단위 테스트·통합 테스트 참여, WAI-ARIA 기반 보이스오버 및 키보드 접근성 플로우 검증</li>
+      <li>웹 접근성 인증 마크(WA) 취득 기여</li>
+    </ul>
+  </div>
+
+  <div class="section-label">강점 키워드</div>
+  <div class="keyword-row">
+    <span class="keyword">약 50인 대규모 프로젝트</span>
+    <span class="keyword">군 복지 포털</span>
+    <span class="keyword">Vue 3 + Quasar</span>
+    <span class="keyword">어드민 UI</span>
+    <span class="keyword">웹접근성 인증 취득</span>
+    <span class="keyword">통합 테스트 참여</span>
+    <span class="keyword">신분별 분기 UI</span>
+  </div>
+</div>
+
+    <hr class="divider">
+
+    <!-- 프로젝트 3 -->
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">암웨이 코리아 웹사이트 운영 및 콘텐츠 퍼블리싱</span>
+        <span class="project-period">2021. 07 – 2025. 06</span>
+      </div>
+      <div class="project-meta">
+        <span class="meta-label">팀 규모</span>
+        <span>퍼블리셔 3인</span>
+        <span class="meta-label" style="margin-left:8px">기간</span>
+        <span>약 4년</span>
+      </div>
+      <div class="stack-tags">
+        <span class="stack-tag main">HTML5</span>
+        <span class="stack-tag main">CSS3</span>
+        <span class="stack-tag main">JavaScript</span>
+      </div>
+      <ul class="bullet-list">
+        <li>브랜드 소개, 이벤트, 상품 프로모션 등 월 평균 약 100페이지 이상 퍼블리싱 (3인 기준)</li>
+        <li>빠른 납기 요구에 대응하며 장기간 일정 내 안정적 운영 유지</li>
+        <li>메인, 카테고리, 상품 상세, 장바구니 등 이커머스 전 영역 경험</li>
+        <li>타이포그래피·여백 등 반응형 공통 유틸리티 클래스를 정의하여 반복 작업 최소화 및 스타일 일관성 유지</li>
+      </ul>
+      <div class="section-label">강점 키워드</div>
+      <div class="keyword-row">
+        <span class="keyword">장기 운영 경험</span>
+        <span class="keyword">대용량 콘텐츠 처리</span>
+        <span class="keyword">이커머스 전 영역</span>
+        <span class="keyword">납기 준수</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 이전 경력 -->
+  <div class="company-block">
+    <div class="company-header">
+      <span class="company-name">프리랜서 / 이전 경력</span>
+      <span class="company-period">2020. 11 – 2021. 07</span>
+    </div>
+    <div class="company-type">웹 퍼블리셔</div>
+    <div class="stack-tags" style="margin-bottom:10px">
+      <span class="stack-tag main">HTML5</span>
+      <span class="stack-tag main">CSS3</span>
+      <span class="stack-tag main">JavaScript</span>
+      <span class="stack-tag">Wix</span>
+      <span class="stack-tag">AWS</span>
+    </div>
+    <ul class="bullet-list">
+      <li>중소기업 홈페이지 3건 퍼블리싱 단독 수행</li>
+      <li>Wix 기반 커스텀 퍼블리싱 및 AWS 환경 배포 경험</li>
+    </ul>
+  </div>
+
+</div>

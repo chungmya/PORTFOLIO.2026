@@ -1,0 +1,348 @@
+@use '@/assets/scss/common/variables' as *;
+@use '@/assets/scss/common/mixins' as *;
+
+// ============================================================
+// 프로젝트 섹션
+// ============================================================
+.projects {
+  @include section-base;
+  background: $color-bg-section;
+}
+
+// ============================================================
+// 필터 탭
+// ============================================================
+.projects__filters {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-xl;
+}
+
+.projects__filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: $border-radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-muted;
+  background: transparent;
+  border: 1.5px solid $color-border;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.4);
+    color: $color-primary-light;
+  }
+
+  &.is-active {
+    background: $color-primary;
+    border-color: $color-primary;
+    color: $color-white;
+    font-weight: $font-weight-semibold;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
+}
+
+// ============================================================
+// 카드 그리드
+// ============================================================
+.projects__grid {
+  width: 100%;
+}
+
+.projects__grid-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// ============================================================
+// 프로젝트 카드
+// ============================================================
+.project-card {
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform $transition-normal, box-shadow $transition-normal, border-color $transition-normal;
+
+  &:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: $shadow-hover;
+    border-color: rgba($color-primary, 0.3);
+
+    .project-card__overlay {
+      opacity: 1;
+    }
+
+    .project-card__thumb img {
+      transform: scale(1.05);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
+}
+
+// 썸네일
+.project-card__thumb {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+}
+
+// hover 오버레이
+.project-card__overlay {
+  @include absolute-fill;
+  @include flex-center;
+  background: rgba($color-primary-dark, 0.75);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity $transition-normal;
+
+  &-text {
+    color: $color-white;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-base;
+    letter-spacing: 0.05em;
+  }
+}
+
+// 카드 본문
+.project-card__body {
+  padding: $spacing-md;
+  background: #ffffff;
+  border-radius: 0 0 $border-radius-md $border-radius-md;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: background $transition-normal;
+
+  .project-card:hover & {
+    background: #faf9f7;
+  }
+}
+
+.project-card__category {
+  display: inline-block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-primary-light;
+  margin-bottom: $spacing-xs;
+}
+
+.project-card__title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  margin-bottom: $spacing-xs;
+}
+
+.project-card__desc {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-sm;
+  @include text-ellipsis(2);
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.project-card__tag {
+  display: inline-block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-muted;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: $border-radius-sm;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid $color-border;
+}
+
+// ============================================================
+// 필터 전환 애니메이션
+// ============================================================
+.card-fade-enter-active,
+.card-fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.card-fade-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.card-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+// ============================================================
+// 모달 팝업
+// ============================================================
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  z-index: $z-modal;
+  @include flex-center;
+  padding: $spacing-sm;
+  overflow-y: auto;
+}
+
+.modal {
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+  overflow: hidden;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal__close {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  z-index: 1;
+  @include flex-center;
+  width: 36px;
+  height: 36px;
+  @include glassmorphism(0.15);
+  border-radius: 50%;
+  color: $color-text;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba($color-accent, 0.2);
+    color: $color-accent;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.modal__thumb {
+  img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+
+    @include tablet {
+      height: 300px;
+    }
+  }
+}
+
+.modal__body {
+  padding: $spacing-lg;
+}
+
+.modal__category {
+  display: inline-block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-primary-light;
+  margin-bottom: $spacing-xs;
+}
+
+.modal__title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  margin-bottom: $spacing-sm;
+}
+
+.modal__desc {
+  color: $color-text-muted;
+  line-height: $line-height-loose;
+  margin-bottom: $spacing-md;
+}
+
+.modal__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+  padding: $spacing-sm;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: $border-radius-sm;
+
+  &-item {
+    dt {
+      font-size: $font-size-xs;
+      color: $color-primary-light;
+      font-weight: $font-weight-semibold;
+      margin-bottom: 0.2rem;
+    }
+
+    dd {
+      font-size: $font-size-sm;
+      color: $color-text;
+    }
+  }
+}
+
+.modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-bottom: $spacing-md;
+}
+
+.modal__links {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+// 모달 전환 애니메이션
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.25s ease;
+
+  .modal {
+    transition: transform 0.25s ease;
+  }
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+
+  .modal {
+    transform: scale(0.95) translateY(20px);
+  }
+}

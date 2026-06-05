@@ -7,12 +7,12 @@ $color-primary-dark: #4834d4;   // 진한 포인트
 $color-accent: #fd79a8;         // 보조 포인트 컬러 (코랄 핑크)
 $color-accent-mint: #00cec9;    // 민트 포인트
 
-$color-bg: #0f0e17;             // 전체 배경 (다크)
+$color-bg: #ffffff;             // 전체 배경
 $color-bg-card: #1a1929;        // 카드 배경
-$color-bg-section: #13121f;     // 섹션 배경 (약간 다름)
+$color-bg-section: #ffffff;     // 섹션 배경 (약간 다름)
 
-$color-text: #fffffe;           // 기본 텍스트
-$color-text-muted: #a7a9be;     // 보조 텍스트
+$color-text: #2d2d2d;           // 기본 텍스트
+$color-text-muted: #3a3636;     // 보조 텍스트
 $color-text-dark: #2d2d2d;      // 어두운 텍스트
 
 $color-border: rgba(255, 255, 255, 0.08);
@@ -91,3 +91,26 @@ $z-card: 10;
 $z-nav: 100;
 $z-modal: 1000;
 $z-tooltip: 1100;
+
+// ============================================================
+// 컴포넌트 전용 토큰 (ProjectDetail 등)
+// ============================================================
+$color-surface: #1e1d2e;
+$color-text-primary: #e8e8f0;
+
+$color-problem: #e17055;
+$color-solution: #00b894;
+
+$color-tag-blue: #74b9ff;
+$color-tag-pink: #fd79a8;
+$color-tag-yellow: #fdcb6e;
+$color-tag-green: #55efc4;
+$color-tag-gray: #b2bec3;
+
+$font-heading: $font-primary;
+
+$radius-sm: $border-radius-sm;
+$radius-md: $border-radius-md;
+$radius-lg: $border-radius-lg;
+
+$transition-base: all $transition-fast;
