@@ -8,9 +8,9 @@
       <div class="container">
         <nav class="site-nav" aria-label="주 내비게이션">
           <!-- 로고 -->
-          <a href="#" class="site-nav__logo" aria-label="포트폴리오 상단으로 이동">
+          <RouterLink to="/" class="site-nav__logo" aria-label="포트폴리오 홈으로 이동" @click="scrollToTop">
             <span aria-hidden="true">✦</span> PCM's Portfolio
-          </a>
+          </RouterLink>
 
           <!-- 모바일 네비게이션 햄버거 버튼 -->
           <button
@@ -67,7 +67,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { RouterView } from 'vue-router'
+import { RouterView, RouterLink } from 'vue-router'
 
 // 아이콘
 import { Menu } from '@lucide/vue'

@@ -11,6 +11,11 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
 // ============================================================
+// Cormorant Infant 폰트 로드
+// ============================================================
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&display=swap');
+
+// ============================================================
 // 전역 기본 스타일
 // ============================================================
 body {
@@ -58,7 +63,7 @@ body {
     margin-top: $spacing-sm;
     color: $color-text-muted;
     font-size: $font-size-md;
-    max-width: 540px;
+    max-width: 54rem;
     margin-left: auto;
     margin-right: auto;
   }
@@ -73,7 +78,7 @@ body {
   color: $color-white;
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-0.2rem);
     box-shadow: $shadow-hover;
   }
 }
@@ -87,7 +92,7 @@ body {
   &:hover {
     background: $color-primary;
     color: $color-white;
-    transform: translateY(-2px);
+    transform: translateY(-0.2rem);
   }
 }
 
@@ -96,7 +101,7 @@ body {
 // ============================================================
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(4rem);
   transition: opacity 0.75s ease, transform 0.75s ease;
 
   &.is-visible {
@@ -107,7 +112,7 @@ body {
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateX(-5rem);
   transition: opacity 0.75s ease, transform 0.75s ease;
 
   &.is-visible {
@@ -118,7 +123,7 @@ body {
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateX(5rem);
   transition: opacity 0.75s ease, transform 0.75s ease;
 
   &.is-visible {
@@ -131,7 +136,7 @@ body {
 // 커스텀 스크롤바
 // ============================================================
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0.6rem;
 }
 
 ::-webkit-scrollbar-track {

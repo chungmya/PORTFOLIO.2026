@@ -1,7 +1,6 @@
 <template>
   <!-- 프로젝트 디테일 섹션 전체 래퍼 -->
   <article class="detail" role="main" :aria-label="`${project.title} 프로젝트 상세`">
-
     <!-- 뒤로가기 버튼 -->
     <div class="detail__back">
       <button
@@ -15,7 +14,7 @@
     </div>
 
     <!-- 히어로 영역: 프로젝트명 + 핵심 메타 정보 -->
-    <header class="detail__hero" :style="{ '--accent': project.accent }">
+    <header class="detail__hero">
       <div class="detail__hero-inner">
         <div class="detail__category">{{ project.category }}</div>
         <h1 class="detail__title">{{ project.title }}</h1>
@@ -23,27 +22,15 @@
 
         <!-- 핵심 수치 배지 -->
         <ul class="detail__stats" aria-label="프로젝트 핵심 정보">
-          <li
-            v-for="stat in project.stats"
-            :key="stat.label"
-            class="detail__stat"
-          >
+          <li v-for="stat in project.stats" :key="stat.label" class="detail__stat">
             <span class="detail__stat-value">{{ stat.value }}</span>
             <span class="detail__stat-label">{{ stat.label }}</span>
           </li>
         </ul>
       </div>
-    </header>
-
-    <!-- 본문 콘텐츠 영역 -->
-    <div class="detail__body">
 
       <!-- 사용 기술 섹션 -->
-      <section class="detail__section" aria-labelledby="skills-heading">
-        <h2 id="skills-heading" class="detail__section-title">
-          <span class="detail__section-num" aria-hidden="true">01</span>
-          사용 기술
-        </h2>
+      <div aria-labelledby="skills-heading">
         <ul class="detail__skills" aria-label="사용한 기술 스택">
           <li
             v-for="skill in project.skills"
@@ -54,8 +41,11 @@
             {{ skill.name }}
           </li>
         </ul>
-      </section>
+      </div>
+    </header>
 
+    <!-- 본문 콘텐츠 영역 -->
+    <div class="detail__body">
       <!-- 담당 업무 섹션 -->
       <section class="detail__section" aria-labelledby="tasks-heading">
         <h2 id="tasks-heading" class="detail__section-title">
@@ -63,11 +53,7 @@
           담당 업무
         </h2>
         <ul class="detail__tasks" aria-label="담당한 업무 목록">
-          <li
-            v-for="(task, index) in project.tasks"
-            :key="index"
-            class="detail__task-item"
-          >
+          <li v-for="(task, index) in project.tasks" :key="index" class="detail__task-item">
             <span class="detail__task-dot" aria-hidden="true"></span>
             <span>{{ task }}</span>
           </li>
@@ -88,6 +74,38 @@
           >
             <span class="detail__feature-icon" aria-hidden="true">{{ feature.icon }}</span>
             <p class="detail__feature-text">{{ feature.text }}</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 프로젝트 이미지 섹션 -->
+      <section
+        v-if="project.images && project.images.length"
+        class="detail__section"
+        aria-labelledby="images-heading"
+      >
+        <h2 id="images-heading" class="detail__section-title">
+          <span class="detail__section-num" aria-hidden="true">02</span>
+          작업 화면
+        </h2>
+
+        <!-- 첫 번째 이미지: 크게 -->
+        <figure class="detail__img-main">
+          <img :src="project.images[0].src" :alt="project.images[0].caption" class="detail__img" />
+          <figcaption class="detail__img-caption">
+            {{ project.images[0].caption }}
+          </figcaption>
+        </figure>
+
+        <!-- 나머지 이미지: 2열 그리드 -->
+        <ul v-if="project.images.length > 1" class="detail__img-grid" aria-label="추가 작업 화면">
+          <li v-for="(image, index) in project.images.slice(1)" :key="index">
+            <figure>
+              <img :src="image.src" :alt="image.caption" class="detail__img" />
+              <figcaption class="detail__img-caption">
+                {{ image.caption }}
+              </figcaption>
+            </figure>
           </li>
         </ul>
       </section>
@@ -120,9 +138,7 @@
         </ul>
       </section>
 
-      <section class="detail__section"
-        aria-labelledby="link-heading"
-      >
+      <section class="detail__section" aria-labelledby="link-heading">
         <h2 id="link-heading" class="detail__section-title">
           <span class="detail__section-num" aria-hidden="true">05</span>
           웹사이트
@@ -138,24 +154,6 @@
           <span class="detail__link-icon" aria-hidden="true">↗</span>
         </a>
       </section>
-
-      <!-- 강점 키워드 섹션 -->
-      <section class="detail__section" aria-labelledby="keywords-heading">
-        <h2 id="keywords-heading" class="detail__section-title">
-          <span class="detail__section-num" aria-hidden="true">{{ project.link ? '06' : '05' }}</span>
-          강점 키워드
-        </h2>
-        <ul class="detail__keywords" aria-label="강점 키워드 목록">
-          <li
-            v-for="keyword in project.keywords"
-            :key="keyword"
-            class="detail__keyword"
-          >
-            # {{ keyword }}
-          </li>
-        </ul>
-      </section>
-
     </div>
   </article>
 </template>
@@ -167,8 +165,8 @@ import { defineProps, defineEmits } from 'vue'
 const props = defineProps({
   project: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 })
 
 // 닫기 이벤트 정의

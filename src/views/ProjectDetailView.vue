@@ -1,5 +1,5 @@
 <template>
-  <div v-if="project">
+  <div v-if="project" class="project-detail-view">
     <ProjectDetail :project="project" @close="handleClose" />
   </div>
   <div v-else class="not-found">
@@ -25,3 +25,9 @@ function handleClose() {
   router.push({ path: '/', hash: '#projects' })
 }
 </script>
+
+<style lang="scss" scoped>
+.project-detail-view {
+  padding-top: 8rem;
+}
+</style>

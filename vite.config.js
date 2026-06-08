@@ -5,9 +5,9 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   plugins: [vue()],
   server: {
-    hmr: true, // 기본값이지만 명시
+    hmr: true,
     watch: {
-      usePolling: true, // WSL, Docker, VM 환경이라면 필수!
+      usePolling: true,
     },
   },
   resolve: {
@@ -16,10 +16,14 @@ export default defineConfig({
     },
   },
   css: {
+    devSourcemap: true, 
     preprocessorOptions: {
       scss: {
         api: 'modern-compiler',
-        
+        additionalData: `
+          @use '@/assets/scss/common/variables' as *;
+          @use '@/assets/scss/common/mixins' as *;
+        `,
       },
     },
   },

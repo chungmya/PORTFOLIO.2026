@@ -93,13 +93,13 @@
 // 유리 효과 (glassmorphism)
 @mixin glassmorphism($opacity: 0.1) {
   background: rgba(255, 255, 255, $opacity);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(1.2rem);
+  -webkit-backdrop-filter: blur(1.2rem);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 // 글로우 효과
-@mixin glow($color: $color-primary, $size: 20px) {
+@mixin glow($color: $color-primary, $size: 2rem) {
   box-shadow: 0 0 $size rgba($color, 0.4);
 }
 
@@ -126,7 +126,7 @@
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  padding: 0.75rem 1.75rem;
+  padding: 1.2rem 2.8rem;
   border-radius: $border-radius-full;
   font-size: $font-size-base;
   font-weight: $font-weight-semibold;
@@ -145,7 +145,7 @@
 // 스크롤 진입 애니메이션 기본 상태
 @mixin reveal-init {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(3rem);
   transition: opacity 0.7s ease, transform 0.7s ease;
 
   &.is-visible {
