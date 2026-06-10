@@ -40,16 +40,6 @@ body {
   text-align: center;
   margin-bottom: $spacing-xl;
 
-  .section-eyebrow {
-    display: inline-block;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-semibold;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: $color-primary-light;
-    margin-bottom: $spacing-xs;
-  }
-
   .section-title {
     @include section-title;
     color: $color-text;
@@ -102,7 +92,9 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(4rem);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
 
   &.is-visible {
     opacity: 1;
@@ -113,7 +105,9 @@ body {
 .reveal-left {
   opacity: 0;
   transform: translateX(-5rem);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
 
   &.is-visible {
     opacity: 1;
@@ -124,7 +118,9 @@ body {
 .reveal-right {
   opacity: 0;
   transform: translateX(5rem);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
 
   &.is-visible {
     opacity: 1;

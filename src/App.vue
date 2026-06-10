@@ -77,9 +77,9 @@ import { Menu } from '@lucide/vue'
 // 네비게이션 데이터
 // ============================================================
 const navItems = [
+  { href: '#projects', label: 'Projects', section: 'projects' },
   { href: '#about', label: 'About', section: 'about' },
   { href: '#career', label: 'Career', section: 'career' },
-  { href: '#projects', label: 'Projects', section: 'projects' },
   { href: '#skills', label: 'Skills', section: 'skills' },
   { href: '#contact', label: 'Contact', section: 'contact' },
 ]
@@ -94,7 +94,7 @@ const isMenuOpen = ref(false)
 function handleScroll() {
   isScrolled.value = window.scrollY > 50
   // 현재 활성 섹션 감지
-  const sections = ['about', 'career', 'projects', 'skills', 'contact']
+  const sections = ['projects', 'about', 'career', 'skills', 'contact']
   for (const id of [...sections].reverse()) {
     const el = document.getElementById(id)
     if (el && window.scrollY >= el.offsetTop - 100) {

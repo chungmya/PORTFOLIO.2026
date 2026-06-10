@@ -6,20 +6,13 @@
     <div class="container">
       <!-- 섹션 헤더 -->
       <div class="section-header reveal">
-        <span class="section-eyebrow">Skills</span>
-        <h2 id="skills-title" class="section-title">
-          기술 <span>스택</span>
-        </h2>
+        <h2 id="skills-title" class="section-title">기술 스택</h2>
         <p class="section-desc">실무에서 사용하는 기술들을 소개합니다.</p>
       </div>
 
       <!-- 스킬 카테고리 그룹 -->
       <div class="skills__groups">
-        <div
-          v-for="group in skillGroups"
-          :key="group.title"
-          class="skills__group reveal"
-        >
+        <div v-for="group in skillGroups" :key="group.title" class="skills__group reveal">
           <h3 class="skills__group-title">{{ group.title }}</h3>
           <ul class="skills__list" role="list" :aria-label="`${group.title} 기술 목록`">
             <li
@@ -29,11 +22,7 @@
               :style="{ transitionDelay: `${index * 0.07}s` }"
             >
               <!-- 스킬 아이콘 -->
-              <div
-                class="skill-item__icon"
-                :style="{ background: skill.bg }"
-                aria-hidden="true"
-              >
+              <div class="skill-item__icon" :style="{ background: skill.bg }" aria-hidden="true">
                 <span v-if="skill.emoji">{{ skill.emoji }}</span>
                 <img
                   v-else-if="skill.iconUrl"
@@ -73,13 +62,23 @@ const skillGroups = [
       { name: 'HTML5', emoji: '🧱', bg: 'linear-gradient(135deg, #e34f26, #f06529)', level: 95 },
       { name: 'CSS3', emoji: '🎨', bg: 'linear-gradient(135deg, #1572b6, #33a9dc)', level: 92 },
       { name: 'SCSS', emoji: '💅', bg: 'linear-gradient(135deg, #cc6699, #e4a0c1)', level: 90 },
-      { name: 'Bootstrap', emoji: '🅱', bg: 'linear-gradient(135deg, #7952b3, #a174d4)', level: 80 },
+      {
+        name: 'Bootstrap',
+        emoji: '🅱',
+        bg: 'linear-gradient(135deg, #7952b3, #a174d4)',
+        level: 80,
+      },
     ],
   },
   {
     title: '스크립트 & 프레임워크',
     items: [
-      { name: 'JavaScript', emoji: '⚡', bg: 'linear-gradient(135deg, #f7df1e, #f0c419)', level: 85 },
+      {
+        name: 'JavaScript',
+        emoji: '⚡',
+        bg: 'linear-gradient(135deg, #f7df1e, #f0c419)',
+        level: 85,
+      },
       { name: 'jQuery', emoji: '$', bg: 'linear-gradient(135deg, #0769ad, #1a9ac7)', level: 88 },
       { name: 'Vue 3', emoji: '🟢', bg: 'linear-gradient(135deg, #42b883, #369870)', level: 78 },
     ],
@@ -120,7 +119,6 @@ onMounted(() => {
   })
 })
 </script>
-
 
 <style lang="scss" scoped>
 @use '@/assets/scss/page/SkillsSection';

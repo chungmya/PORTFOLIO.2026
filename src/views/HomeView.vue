@@ -1,9 +1,9 @@
 <template>
   <main id="main-content" tabindex="-1">
     <HeroSection />
+    <ProjectSection />
     <AboutSection />
     <CareerSection />
-    <ProjectSection />
     <SkillsSection />
     <ContactSection />
   </main>

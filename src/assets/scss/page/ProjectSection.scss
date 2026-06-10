@@ -27,13 +27,13 @@
   font-weight: $font-weight-medium;
   color: $color-text-muted;
   background: transparent;
-  border: 1.5px solid $color-border;
+  border: 1.5px solid $color-primary;
   cursor: pointer;
   transition: all $transition-normal;
 
   &:hover {
-    border-color: rgba($color-primary, 0.4);
-    color: $color-primary-light;
+    border-color: $color-primary;
+    color: $color-primary;
   }
 
   &.is-active {
@@ -75,16 +75,24 @@
 // ============================================================
 .project-card {
   background: $color-bg-card;
-  border: 1px solid $color-border;
+  border: 1px solid $color-accent-gray;
   border-radius: $border-radius-md;
   overflow: hidden;
   cursor: pointer;
-  transition: transform $transition-normal, box-shadow $transition-normal, border-color $transition-normal;
+  transition:
+    transform $transition-normal,
+    box-shadow $transition-normal,
+    border-color $transition-normal;
+  background: #ffffff;
+  box-shadow:
+    0 0.2rem 1.2rem rgba(0, 0, 0, 0.06),
+    0 0.1rem 0.3rem rgba(0, 0, 0, 0.04);
 
   &:hover {
     transform: translateY(-0.6rem) scale(1.01);
     box-shadow: $shadow-hover;
     border-color: rgba($color-primary, 0.3);
+    background: #faf9f7;
 
     .project-card__overlay {
       opacity: 1;
@@ -135,14 +143,9 @@
 // 카드 본문
 .project-card__body {
   padding: $spacing-md;
-  background: #ffffff;
+  // background: #ffffff;
   border-radius: 0 0 $border-radius-md $border-radius-md;
-  box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.06), 0 0.1rem 0.3rem rgba(0, 0, 0, 0.04);
   transition: background $transition-normal;
-
-  .project-card:hover & {
-    background: #faf9f7;
-  }
 }
 
 .project-card__category {
@@ -180,11 +183,11 @@
   display: inline-block;
   font-size: $font-size-xs;
   font-weight: $font-weight-medium;
-  color: $color-text-muted;
-  background: rgba(255, 255, 255, 0.06);
+  color: $color-tag-blue;
+  background: rgba($color-tag-blue, 0.1);
   border-radius: $border-radius-sm;
   padding: 0.32rem 0.96rem;
-  border: 1px solid $color-border;
+  border: 0.1rem solid rgba($color-tag-blue, 0.25);
 }
 
 // ============================================================
@@ -192,7 +195,9 @@
 // ============================================================
 .card-fade-enter-active,
 .card-fade-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 .card-fade-enter-from {
   opacity: 0;

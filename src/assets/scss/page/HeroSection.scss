@@ -12,12 +12,9 @@
   padding: 9.6rem 0 6.4rem;
 
   // 배경 그라데이션
-  background: radial-gradient(
-    ellipse 80% 60% at 50% 0%,
-    rgba($color-primary, 0.15) 0%,
-    transparent 70%
-  ),
-  $color-bg;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba($color-primary, 0.15) 0%, transparent 70%),
+    $color-bg;
 }
 
 // ============================================================
@@ -65,8 +62,13 @@
 }
 
 @keyframes floatOrb {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-3rem) scale(1.05); }
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3rem) scale(1.05);
+  }
 }
 
 // ============================================================
@@ -84,7 +86,7 @@
   font-size: $font-size-md;
   color: $color-text-muted;
   margin-bottom: $spacing-sm;
-  font-weight: $font-weight-medium;
+  font-weight: $font-weight-semibold;
 }
 
 .hero__name {
@@ -139,8 +141,13 @@
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 // 슬로건
@@ -203,8 +210,13 @@
 }
 
 @keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(0.8rem); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.8rem);
+  }
 }
 
 // ============================================================
@@ -213,7 +225,9 @@
 .reveal-up {
   opacity: 0;
   transform: translateY(3rem);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
 
   &.is-visible {
     opacity: 1;

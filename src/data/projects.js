@@ -7,7 +7,7 @@ export const projects = [
     category: 'build',
     title: '라이나원 Go',
     desc: '보험사 라이나원 TMR 모집 신청 신규 웹사이트 구축',
-    thumbnail: 'https://picsum.photos/seed/project3/800/480',
+    thumbnail: '/images/thumbnail_linaone.jpg',
     tags: ['HTML5', 'CSS3', 'Sass', 'JavaScript', 'Mobile First'],
     detail: {
       id: 'laina-one',
@@ -54,8 +54,24 @@ export const projects = [
       ],
       links: [
         {
-          text: '라이나원 Go 바로가기',
+          text: '(오픈전)메인 페이지',
           url: 'http://netive.synology.me:8092/html/RE_TM0000V.html',
+        },
+        {
+          text: '(오픈전)서브페이지_1',
+          url: 'http://netive.synology.me:8092/html/RE_CA0000V.html',
+        },
+        {
+          text: '(오픈전)성향 테스트 페이지',
+          url: 'http://netive.synology.me:8092/html/RE_CA0100P.html',
+        },
+        {
+          text: '(오픈전)성향 테스트 결과 페이지',
+          url: 'http://netive.synology.me:8092/html/RE_CA0200P.html',
+        },
+        {
+          text: '(오픈전)신청 폼 모달',
+          url: 'http://netive.synology.me:8092/html/RE_AP0000P.html',
         },
       ],
       keywords: ['단독 퍼블리싱', '컴포넌트 가이드화', 'CTA 인터랙션', 'WAI-ARIA', 'Mobile First'],
@@ -70,7 +86,7 @@ export const projects = [
     category: 'build',
     title: '나라사랑 포털',
     desc: '현역 군인 전용 복지 플랫폼 어드민 및 반응형 웹사이트 구축',
-    thumbnail: 'https://picsum.photos/seed/project1/800/480',
+    thumbnail: '/images/thumbnail_narasarang.jpg',
     tags: ['HTML5', 'Vue 3', 'Quasar', 'SCSS', 'GSAP', 'WAI-ARIA'],
     detail: {
       id: 'nara-sarang',
@@ -157,7 +173,7 @@ export const projects = [
     category: 'operation',
     title: '암웨이 코리아',
     desc: '대형 이커머스 브랜드 웹사이트 콘텐츠 퍼블리싱 및 운영',
-    thumbnail: 'https://picsum.photos/seed/project2/800/480',
+    thumbnail: '/images/thumbnail_amway.jpg',
     tags: ['HTML5', 'CSS3', 'JavaScript', '유틸리티 클래스', '이커머스'],
     detail: {
       id: 'amway-korea',
