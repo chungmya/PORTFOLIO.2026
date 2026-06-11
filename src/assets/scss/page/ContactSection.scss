@@ -7,28 +7,7 @@
 .contact {
   @include section-base;
   position: relative;
-  background: linear-gradient(
-    135deg,
-    #151423 0%,
-    $color-bg 50%,
-    rgba($color-primary, 0.05) 100%
-  );
-  padding-top: 8rem;
-}
-
-// 상단 웨이브
-.contact__wave-top {
-  position: absolute;
-  top: -0.1rem;
-  left: 0;
-  width: 100%;
-  height: 8rem;
-  color: $color-bg; // 이전 섹션 배경색과 일치
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+  background-image: linear-gradient(to top, #fbc2eb 40%, #a6c1ee 60%);
 }
 
 // ============================================================
@@ -42,7 +21,7 @@
   margin: 0 auto $spacing-xl;
 
   @include tablet {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -54,7 +33,9 @@
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: $border-radius-md;
-  box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.06), 0 0.1rem 0.3rem rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 0.2rem 1.2rem rgba(0, 0, 0, 0.06),
+    0 0.1rem 0.3rem rgba(0, 0, 0, 0.04);
   transition: all $transition-normal;
   text-decoration: none;
   cursor: pointer;
@@ -64,12 +45,22 @@
     align-items: flex-start;
     gap: $spacing-sm;
   }
+  .contact__card-arrow {
+    background: transparent;
+    color: #a29bfe;
+    border: 1.5px solid #6c63ff;
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 
   &:hover {
     background: #faf9f7;
     border-color: rgba($color-primary, 0.2);
     transform: translateY(-0.4rem);
-    box-shadow: 0 1.2rem 4rem rgba(108, 99, 255, 0.1), 0 0.4rem 1.2rem rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 1.2rem 4rem rgba(108, 99, 255, 0.1),
+      0 0.4rem 1.2rem rgba(0, 0, 0, 0.06);
 
     .contact__card-arrow {
       transform: translateX(0.4rem);
@@ -116,7 +107,9 @@
 
 .contact__card-arrow {
   color: $color-text-muted;
-  transition: transform $transition-normal, color $transition-normal;
+  transition:
+    transform $transition-normal,
+    color $transition-normal;
   margin-left: auto;
   flex-shrink: 0;
 
@@ -153,8 +146,13 @@
 }
 
 @keyframes statusPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(#00b894, 0.4); }
-  50% { box-shadow: 0 0 0 0.6rem rgba(#00b894, 0); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(#00b894, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 0.6rem rgba(#00b894, 0);
+  }
 }
 
 // ============================================================

@@ -6,7 +6,6 @@
     <div class="container">
       <!-- 섹션 헤더 -->
       <div class="section-header reveal">
-        <span class="section-eyebrow">Contact</span>
         <h2 id="contact-title" class="section-title">함께 일하고 싶으신가요?</h2>
         <p class="section-desc">
           좋은 기회와 협업을 기다리고 있습니다.<br />
@@ -26,24 +25,14 @@
           :aria-label="link.ariaLabel"
         >
           <div class="contact__card-icon" aria-hidden="true">
-            <component :is="link.icon" :size="28" :stroke-width="1.5" />
+            <i :class="link.icon"></i>
           </div>
           <div class="contact__card-info">
             <span class="contact__card-label">{{ link.label }}</span>
             <span class="contact__card-value">{{ link.value }}</span>
           </div>
           <div class="contact__card-arrow" aria-hidden="true">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            <i class="fa-solid fa-arrow-right"></i>
           </div>
         </a>
       </div>
@@ -53,7 +42,6 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { Mail, Github, NotebookText } from '@lucide/vue'
 
 // ============================================================
 // 연락처 링크 데이터
@@ -61,27 +49,19 @@ import { Mail, Github, NotebookText } from '@lucide/vue'
 const contactLinks = [
   {
     label: 'Email',
-    value: 'bluepark@example.com',
-    href: 'mailto:bluepark@example.com',
+    value: 'bluepark1023@gmail.com',
+    href: 'mailto:bluepark1023@gmail.com',
     ariaLabel: '이메일 클라이언트 열기',
     external: false,
-    icon: Mail,
+    icon: 'fa-regular fa-envelope',
   },
   {
     label: 'GitHub',
-    value: 'github.com/bluepark1023',
-    href: 'https://github.com/bluepark1023',
+    value: 'github.com/chungmya',
+    href: 'https://github.com/chungmya',
     ariaLabel: 'GitHub 프로필 새 탭에서 열기',
     external: true,
-    icon: Github,
-  },
-  {
-    label: 'Notion',
-    value: '이력서 & 포트폴리오 문서',
-    href: '#',
-    ariaLabel: 'Notion 이력서 새 탭에서 열기',
-    external: true,
-    icon: NotebookText,
+    icon: 'fa-brands fa-github',
   },
 ]
 

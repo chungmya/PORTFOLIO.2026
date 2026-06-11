@@ -23,14 +23,7 @@
             >
               <!-- 스킬 아이콘 -->
               <div class="skill-item__icon" :style="{ background: skill.bg }" aria-hidden="true">
-                <span v-if="skill.emoji">{{ skill.emoji }}</span>
-                <img
-                  v-else-if="skill.iconUrl"
-                  :src="skill.iconUrl"
-                  :alt="skill.name + ' 아이콘'"
-                  width="32"
-                  height="32"
-                />
+                <i :class="skill.icon"></i>
               </div>
               <!-- 스킬 이름 & 레벨 -->
               <span class="skill-item__name">{{ skill.name }}</span>
@@ -59,14 +52,23 @@ const skillGroups = [
   {
     title: '마크업 & 스타일링',
     items: [
-      { name: 'HTML5', emoji: '🧱', bg: 'linear-gradient(135deg, #e34f26, #f06529)', level: 95 },
-      { name: 'CSS3', emoji: '🎨', bg: 'linear-gradient(135deg, #1572b6, #33a9dc)', level: 92 },
-      { name: 'SCSS', emoji: '💅', bg: 'linear-gradient(135deg, #cc6699, #e4a0c1)', level: 90 },
       {
-        name: 'Bootstrap',
-        emoji: '🅱',
-        bg: 'linear-gradient(135deg, #7952b3, #a174d4)',
-        level: 80,
+        name: 'HTML5',
+        icon: 'fa-brands fa-html5',
+        bg: 'linear-gradient(135deg, #e34f26, #f06529)',
+        level: 95,
+      },
+      {
+        name: 'CSS3',
+        icon: 'fa-brands fa-css3-alt',
+        bg: 'linear-gradient(135deg, #1572b6, #33a9dc)',
+        level: 92,
+      },
+      {
+        name: 'Sass',
+        icon: 'fa-brands fa-sass',
+        bg: 'linear-gradient(135deg, #cc6699, #e4a0c1)',
+        level: 90,
       },
     ],
   },
@@ -75,19 +77,39 @@ const skillGroups = [
     items: [
       {
         name: 'JavaScript',
-        emoji: '⚡',
+        icon: 'fa-brands fa-js',
         bg: 'linear-gradient(135deg, #f7df1e, #f0c419)',
         level: 85,
       },
-      { name: 'jQuery', emoji: '$', bg: 'linear-gradient(135deg, #0769ad, #1a9ac7)', level: 88 },
-      { name: 'Vue 3', emoji: '🟢', bg: 'linear-gradient(135deg, #42b883, #369870)', level: 78 },
+      {
+        name: 'jQuery',
+        icon: 'fa-solid fa-code',
+        bg: 'linear-gradient(135deg, #0769ad, #1a9ac7)',
+        level: 88,
+      },
+      {
+        name: 'Vue 3',
+        icon: 'fa-brands fa-vuejs',
+        bg: 'linear-gradient(135deg, #42b883, #369870)',
+        level: 78,
+      },
     ],
   },
   {
     title: '빌드 도구 & 협업',
     items: [
-      { name: 'Vite', emoji: '⚡', bg: 'linear-gradient(135deg, #646cff, #9b59f6)', level: 75 },
-      { name: 'Git', emoji: '🔀', bg: 'linear-gradient(135deg, #f05032, #e35125)', level: 82 },
+      {
+        name: 'Vite',
+        icon: 'fa-solid fa-bolt',
+        bg: 'linear-gradient(135deg, #646cff, #9b59f6)',
+        level: 75,
+      },
+      {
+        name: 'GitHub',
+        icon: 'fa-brands fa-github',
+        bg: 'linear-gradient(135deg, #f05032, #e35125)',
+        level: 82,
+      },
     ],
   },
 ]
