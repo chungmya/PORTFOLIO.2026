@@ -72,7 +72,7 @@
               :key="index"
               class="detail__feature-card"
             >
-              <!-- 이미지가 있을 경우 -->
+              <!-- 이미지 -->
               <div v-if="feature.images && feature.images.length" class="detail__feature-imgs">
                 <img
                   v-for="(img, i) in feature.images"
@@ -83,7 +83,37 @@
                   loading="lazy"
                 />
               </div>
+
+              <!-- 스니펫 -->
+              <pre
+                v-if="feature.code"
+                class="detail__code-block"
+              ><code>{{ feature.code }}</code></pre>
+
               <p class="detail__feature-text">{{ feature.text }}</p>
+            </li>
+          </ul>
+
+          <!-- 어려웠던 점 & 해결 -->
+          <ul
+            v-if="project.challenges && project.challenges.length"
+            class="detail__challenges"
+            aria-label="어려움과 해결 사례 목록"
+          >
+            <li
+              v-for="(item, index) in project.challenges"
+              :key="index"
+              class="detail__challenge-item"
+            >
+              <div class="detail__challenge-problem" aria-label="어려웠던 점">
+                <span class="detail__challenge-badge detail__challenge-badge--problem">문제</span>
+                <p>{{ item.problem }}</p>
+              </div>
+              <span class="detail__challenge-arrow" aria-hidden="true"></span>
+              <div class="detail__challenge-solution" aria-label="해결 방법">
+                <span class="detail__challenge-badge detail__challenge-badge--solution">해결</span>
+                <p>{{ item.solution }}</p>
+              </div>
             </li>
           </ul>
         </div>

@@ -32,7 +32,7 @@
             <span class="contact__card-value">{{ link.value }}</span>
           </div>
           <div class="contact__card-arrow" aria-hidden="true">
-            <i class="fa-solid fa-arrow-right"></i>
+            <i class="fa-solid fa-arrow-right" :size="10"></i>
           </div>
         </a>
       </div>
@@ -53,7 +53,15 @@ const contactLinks = [
     href: 'mailto:bluepark1023@gmail.com',
     ariaLabel: '이메일 클라이언트 열기',
     external: false,
-    icon: 'fa-regular fa-envelope',
+    icon: 'fa-solid fa-envelope',
+  },
+  {
+    label: 'Phone',
+    value: '010-4477-4158',
+    href: 'tel:010-4477-4158',
+    ariaLabel: '전화 걸기',
+    external: false,
+    icon: 'fa-solid fa-phone',
   },
   {
     label: 'GitHub',

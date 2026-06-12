@@ -510,6 +510,27 @@
 }
 
 // ─────────────────────────────────────────
+// 스니펫
+// ─────────────────────────────────────────
+.detail__code-block {
+  background: #ffff;
+  border: 0.1rem solid rgba($color-text-muted, 0.2);
+  border-radius: $radius-md;
+  padding: 1.5rem 2rem;
+  overflow-x: auto;
+  margin-bottom: 1.6rem;
+
+  code {
+    font-family: $font-primary;
+    font-size: 1.4rem;
+    color: $color-text-pre;
+    white-space: pre;
+    padding: 0;
+    height: auto;
+  }
+}
+
+// ─────────────────────────────────────────
 // 웹사이트 링크
 // ─────────────────────────────────────────
 .detail__links {
