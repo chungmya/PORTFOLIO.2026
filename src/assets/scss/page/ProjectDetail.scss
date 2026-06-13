@@ -403,7 +403,7 @@
 // ─────────────────────────────────────────
 .detail__challenges {
   list-style: none;
-  padding: 0;
+  padding: 4rem 0 0 0;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -439,10 +439,10 @@
 
   p {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.65;
     word-break: keep-all;
-    color: $color-text-primary;
+    color: $color-text-pre;
   }
 }
 
@@ -471,21 +471,26 @@
 .detail__challenge-solution {
   background: rgba($color-solution, 0.06);
   border: 0.1rem solid rgba($color-solution, 0.2);
+}
 
-  // PC: 해결 박스 앞에 → 표시
+.detail__challenge-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-text-muted;
+  flex-shrink: 0;
+
+  &::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 2rem;
+    content: '\f063'; 
+  }
+
   @include tablet {
     &::before {
-      content: '→';
-      display: block;
-      font-size: 2rem;
-      color: $color-text-muted;
-      text-align: center;
-      position: absolute;
-      left: -2.8rem;
-      top: 50%;
-      transform: translateY(-50%);
+      content: '\f061';
     }
-    position: relative;
   }
 }
 
